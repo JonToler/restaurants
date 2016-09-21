@@ -58,6 +58,19 @@
             }
             return $found_cuisine;
         }
+        static function findName($name)
+        {
+            $found_cuisine = null;
+            $cuisines = Cuisine::getAll();
+            foreach($cuisines as $cuisine) {
+                $cuisine_name = $cuisine->getName();
+                if ($cuisine_name == $name) {
+                  $found_cuisine = $cuisine;
+                }
+            }
+            return $found_cuisine;
+        }
+
         function getRestaurants()
         {
             $restaurants = Array();

@@ -24,7 +24,7 @@
         function test_getName()
         {
             //Arrange
-            $name = "Work stuff";
+            $name = "hamburgers";
             $test_Cuisine = new Cuisine($name);
             //Act
             $result = $test_Cuisine->getName();
@@ -129,6 +129,22 @@
             $result = $test_cuisine->getRestaurants();
             //Assert
             $this->assertEquals([$test_restaurant, $test_restaurant2], $result);
+        }
+
+        function testSingleWordSearch()
+        {
+            //Arrange
+            $name = "Hamburgers";
+            $id = null;
+            $test_cuisine = new Cuisine($name, $id);
+            $test_cuisine->save();
+            $test_result = $test_cuisine->findName($test_cuisine->getName());
+            //Act
+            if($test_result->getName()=="Hamburgers"){
+              $result = true;
+            }
+            //Assert
+            $this->assertEquals(true, $result);
         }
 
 
