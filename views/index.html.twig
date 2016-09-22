@@ -15,5 +15,13 @@
 
         <button type="submit">Search Cuisine</button>
     </form>
+    {{temp}}
+    {% if restaurants is not empty %}
+    <ul>
+      {% for restaurant in restaurants %}
+      <li>{{restaurant.name}}({{restaurant.rating}}) - {{restaurant.description}} - {{restaurant.location}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </body>
 </html>

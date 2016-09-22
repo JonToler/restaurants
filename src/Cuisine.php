@@ -74,7 +74,7 @@
         function getRestaurants()
         {
             $restaurants = Array();
-            $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurant WHERE cuisine_id = {$this->getId()} ORDER BY rating;");
+            $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurant WHERE cuisine_id = {$this->getId()} ;");
             foreach($returned_restaurants as $restaurant) {
                 $description = $restaurant['description'];
                 $id = $restaurant['id'];
